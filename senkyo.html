@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高知県 選挙日程ポータル｜高知減税会</title>
+<style>
+:root {
+  --bg:#ffffff;--bg-2:#f8fafc;--bg-blue:#eff6ff;
+  --border:#e2e8f0;--border-strong:#cbd5e1;
+  --text:#1e293b;--text-2:#475569;--text-3:#94a3b8;
+  --blue:#2563eb;--blue-light:#dbeafe;--blue-mid:#3b82f6;
+  --red:#dc2626;--orange:#d97706;--green:#16a34a;
+  --sans:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0f172a;--bg-2:#1e293b;--bg-blue:#1e3a5f;
+  --border:#334155;--border-strong:#475569;
+  --text:#f1f5f9;--text-2:#94a3b8;--text-3:#64748b;
+  --blue-light:#1e3a5f;
+}}
+:root[data-theme="dark"]{--bg:#0f172a;--bg-2:#1e293b;--bg-blue:#1e3a5f;--border:#334155;--border-strong:#475569;--text:#f1f5f9;--text-2:#94a3b8;--text-3:#64748b;--blue-light:#1e3a5f;}
+:root[data-theme="light"]{--bg:#ffffff;--bg-2:#f8fafc;--bg-blue:#eff6ff;--border:#e2e8f0;--text:#1e293b;--text-2:#475569;--text-3:#94a3b8;--blue-light:#dbeafe;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.topbar{background:var(--bg);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:16px;height:52px;position:sticky;top:0;z-index:100;}
+.topbar-logo{font-size:15px;font-weight:700;color:var(--blue);}
+.topbar-logo span{color:var(--text-2);font-weight:400;}
+.topbar-nav{display:flex;gap:5px;flex-wrap:wrap;}
+.topbar-nav a{font-size:12px;color:var(--text-2);padding:3px 10px;border-radius:20px;border:1px solid var(--border);}
+.topbar-nav a:hover,.topbar-nav a.active{background:var(--blue-light);color:var(--blue);border-color:var(--blue-light);text-decoration:none;}
+.topbar-spacer{flex:1;}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:12px;color:var(--text-2);cursor:pointer;}
+
+.hero-strip{background:var(--blue);color:#fff;padding:28px 24px 24px;}
+.hero-strip h1{font-size:clamp(18px,3vw,24px);font-weight:700;margin-bottom:6px;}
+.hero-strip p{font-size:13px;color:#bfdbfe;max-width:700px;line-height:1.7;}
+
+.main{max-width:960px;margin:0 auto;padding:32px 24px;}
+
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;align-items:center;}
+.ctrl-label{font-size:11px;font-weight:700;color:var(--text-3);letter-spacing:.06em;margin-right:4px;}
+.fb{font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg);color:var(--text-2);cursor:pointer;}
+.fb:hover,.fb.active{background:var(--blue-light);color:var(--blue);border-color:var(--blue);}
+.sep{width:1px;height:20px;background:var(--border);margin:0 4px;}
+
+.section-head{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--text-3);text-transform:uppercase;margin:28px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+
+.card-list{display:flex;flex-direction:column;gap:10px;}
+
+.ecard{border:1px solid var(--border);border-radius:10px;background:var(--bg-2);display:flex;gap:0;overflow:hidden;transition:box-shadow .15s;}
+.ecard:hover{box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.ecard.hidden{display:none;}
+
+.ecard-bar{width:5px;flex-shrink:0;}
+.bar-imm{background:var(--red);}
+.bar-soon{background:var(--orange);}
+.bar-mid{background:#eab308;}
+.bar-far{background:var(--border-strong);}
+.bar-est{background:var(--border);}
+
+.ecard-body{flex:1;padding:14px 16px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;}
+.ecard-date{min-width:110px;flex-shrink:0;}
+.ecard-date .day{font-size:18px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;line-height:1.2;}
+.ecard-date .weekday{font-size:11px;color:var(--text-3);}
+.ecard-date .countdown{font-size:11px;font-weight:700;margin-top:4px;}
+.cd-imm{color:var(--red);}
+.cd-soon{color:var(--orange);}
+.cd-mid{color:#ca8a04;}
+.cd-far{color:var(--text-3);}
+
+.ecard-info{flex:1;min-width:160px;}
+.ecard-name{font-size:16px;font-weight:700;color:var(--text);margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.ecard-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px;}
+.ecard-note{font-size:12px;color:var(--text-2);margin-top:4px;}
+
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;}
+.b-gikai{background:#eff6ff;color:#2563eb;}
+.b-cho{background:#f0fdf4;color:#15803d;}
+.b-chiji{background:#fdf4ff;color:#7e22ce;}
+.b-eval-nashi{background:#fee2e2;color:#dc2626;}
+.b-eval-alt{background:#fef3c7;color:#d97706;}
+.b-eval-done{background:#dcfce7;color:#16a34a;}
+.b-est{background:var(--bg-2);color:var(--text-3);border:1px solid var(--border);}
+.b-attn{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;}
+
+.ecard-actions{display:flex;flex-direction:column;gap:6px;align-items:flex-end;justify-content:center;flex-shrink:0;}
+.btn-page{font-size:12px;font-weight:700;padding:6px 14px;border-radius:7px;background:var(--blue);color:#fff;white-space:nowrap;}
+.btn-page:hover{background:#1d4ed8;text-decoration:none;}
+.btn-soon{background:var(--bg-2);color:var(--text-3);font-size:11px;padding:4px 10px;border-radius:6px;border:1px solid var(--border);cursor:default;}
+
+.seats-info{font-size:12px;color:var(--text-2);}
+
+.legend-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-2);}
+.legend-bar{width:6px;height:20px;border-radius:3px;}
+
+.no-result{padding:40px;text-align:center;color:var(--text-3);font-size:14px;}
+
+@media(max-width:640px){
+  .ecard-body{gap:10px;}
+  .ecard-actions{align-items:flex-start;}
+  .main{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo">高知減税会 <span>/ 行政ウォッチ</span></div>
+  <nav class="topbar-nav">
+    <a href="kochi.html">高知県概覧</a>
+    <a href="index.html">香美市</a>
+    <a href="map.html">地図</a>
+    <a href="jiyuu.html">自由民権</a>
+    <a href="senkyo.html" class="active">選挙日程</a>
+  </nav>
+  <div class="topbar-spacer"></div>
+  <button class="theme-btn" onclick="toggleTheme()">テーマ切替</button>
+</header>
+
+<div class="hero-strip">
+  <h1>高知県 選挙日程ポータル</h1>
+  <p>令和8〜9年度に予定される高知県内の市町村議会・首長選挙を一覧表示。行政改革の状況と合わせて確認できます。</p>
+</div>
+
+<div class="main">
+
+  <div class="controls">
+    <span class="ctrl-label">種別</span>
+    <button class="fb active" data-filter="type" data-val="all" onclick="setFilter('type','all',this)">すべて</button>
+    <button class="fb" data-filter="type" data-val="議会" onclick="setFilter('type','議会',this)">議会選挙</button>
+    <button class="fb" data-filter="type" data-val="首長" onclick="setFilter('type','首長',this)">首長選挙</button>
+    <div class="sep"></div>
+    <span class="ctrl-label">時期</span>
+    <button class="fb active" data-filter="year" data-val="all" onclick="setFilter('year','all',this)">すべて</button>
+    <button class="fb" data-filter="year" data-val="r8" onclick="setFilter('year','r8',this)">R8年内</button>
+    <button class="fb" data-filter="year" data-val="r9" onclick="setFilter('year','r9',this)">R9年以降</button>
+    <div class="sep"></div>
+    <span class="ctrl-label">確定</span>
+    <button class="fb active" data-filter="conf" data-val="all" onclick="setFilter('conf','all',this)">すべて</button>
+    <button class="fb" data-filter="conf" data-val="yes" onclick="setFilter('conf','yes',this)">告示日確定</button>
+  </div>
+
+  <div class="legend-row">
+    <div class="legend-item"><div class="legend-bar" style="background:var(--red)"></div>1ヶ月以内</div>
+    <div class="legend-item"><div class="legend-bar" style="background:var(--orange)"></div>3ヶ月以内</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#eab308"></div>6ヶ月以内</div>
+    <div class="legend-item"><div class="legend-bar" style="background:var(--border-strong)"></div>6ヶ月超</div>
+    <div class="legend-item"><div class="legend-bar" style="background:var(--border)"></div>日程未確定（任期満了から推定）</div>
+  </div>
+
+  <div id="card-container" class="card-list"></div>
+  <div id="no-result" class="no-result" style="display:none;">該当する選挙はありません。</div>
+</div>
+
+<div style="background:var(--bg-2);border-top:1px solid var(--border);padding:12px 24px;font-size:11px;color:var(--text-3);">
+  出典：高知県選挙管理委員会「市町村等の議員及び長の任期満了調（R8.6.25現在）」／ R9年以降の日程は任期満了日から推定・未確定 ／ 行政評価：総務省「地方行政サービス改革の取組状況等に関する調査（R7.12公表）」
+</div>
+
+<script>
+const TODAY = new Date('2026-07-18');
+
+// 行政評価（最低評価）
+const EVAL = {
+  "高知市":"実施済","室戸市":"代替・試行","安芸市":"実施済","南国市":"予定なし",
+  "土佐市":"代替・試行","須崎市":"実施済","宿毛市":"代替・試行","土佐清水市":"予定なし",
+  "四万十市":"予定なし","香南市":"実施済","香美市":"予定なし",
+  "東洋町":"代替・試行","奈半利町":"予定なし","田野町":"予定なし","安田町":"代替・試行",
+  "北川村":"代替・試行","馬路村":"代替・試行","芸西村":"実施済","本山町":"代替・試行",
+  "大豊町":"予定なし","土佐町":"代替・試行","大川村":"代替・試行","いの町":"代替・試行",
+  "仁淀川町":"代替・試行","中土佐町":"予定なし","佐川町":"予定なし","越知町":"予定なし",
+  "梼原町":"実施済","日高村":"予定なし","津野町":"予定なし","四万十町":"予定なし",
+  "大月町":"代替・試行","三原村":"予定なし","黒潮町":"予定なし","高知県":"—"
+};
+
+// 自治体ページ（存在するもののみ）
+const PAGES = {
+  "香美市": "index.html"
+};
+
+const ELECTIONS = [
+  // ── R8年 確定 ──
+  {name:"本山町",  type:"議会", date:"2026-07-19", seats:10, confirmed:true, note:"明日！"},
+  {name:"芸西村",  type:"議会", date:"2026-08-09", seats:10, confirmed:true},
+  {name:"越知町",  type:"議会", date:"2026-08-09", seats:10, confirmed:true},
+  {name:"越知町",  type:"首長", date:"2026-08-09", seats:null, confirmed:true},
+  {name:"安芸市",  type:"議会", date:"2026-08-30", seats:14, confirmed:true},
+  {name:"土佐清水市",type:"議会",date:"2026-08-30", seats:12, confirmed:true},
+  {name:"香美市",  type:"議会", date:"2026-09-06", seats:18, confirmed:true, note:"高知減税会 注目選挙区"},
+  {name:"須崎市",  type:"議会", date:"2026-11-01", seats:14, confirmed:true},
+  {name:"室戸市",  type:"首長", date:"2026-11-15", seats:null, confirmed:true},
+  // ── R9年 推定（任期満了から逆算） ──
+  {name:"四万十町",type:"議会", date:"2027-02-01", seats:null, confirmed:false, note:"満了 R9.2.10"},
+  {name:"大豊町",  type:"議会", date:"2027-03-01", seats:null, confirmed:false, note:"満了 R9.3.5"},
+  {name:"高知市",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.5.1"},
+  {name:"宿毛市",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.26"},
+  {name:"奈半利町",type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.30"},
+  {name:"田野町",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.30"},
+  {name:"安田町",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.29"},
+  {name:"北川村",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.30"},
+  {name:"大川村",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.30"},
+  {name:"土佐町",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.5.9"},
+  {name:"梼原町",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.30"},
+  {name:"三原村",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.30"},
+  {name:"黒潮町",  type:"議会", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.30"},
+  {name:"東洋町",  type:"首長", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.25"},
+  {name:"北川村",  type:"首長", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.25"},
+  {name:"土佐町",  type:"首長", date:"2027-04-01", seats:null, confirmed:false, note:"満了 R9.4.29"},
+  {name:"宿毛市",  type:"首長", date:"2027-11-01", seats:null, confirmed:false, note:"満了 R9.12.25"},
+  {name:"大川村",  type:"首長", date:"2027-11-01", seats:null, confirmed:false, note:"満了 R9.12.10"},
+  {name:"高知県",  type:"知事", date:"2027-11-01", seats:null, confirmed:false, note:"満了 R9.12.6"},
+];
+
+const WEEKDAYS = ['日','月','火','水','木','金','土'];
+
+function daysUntil(dateStr) {
+  const d = new Date(dateStr);
+  return Math.ceil((d - TODAY) / 86400000);
+}
+
+function urgencyClass(days, confirmed) {
+  if (!confirmed) return {bar:'bar-est', cd:'cd-far'};
+  if (days <= 31)  return {bar:'bar-imm',  cd:'cd-imm'};
+  if (days <= 90)  return {bar:'bar-soon', cd:'cd-soon'};
+  if (days <= 180) return {bar:'bar-mid',  cd:'cd-mid'};
+  return              {bar:'bar-far',  cd:'cd-far'};
+}
+
+function countdownText(days, confirmed) {
+  if (!confirmed) return '日程未確定（推定）';
+  if (days < 0)  return '実施済';
+  if (days === 0) return '本日！';
+  if (days === 1) return '明日！';
+  return `あと ${days} 日`;
+}
+
+function formatDate(dateStr, confirmed) {
+  const d = new Date(dateStr);
+  const y = d.getFullYear();
+  const m = d.getMonth()+1;
+  const day = d.getDate();
+  const wd = WEEKDAYS[d.getDay()];
+  const reiwa = y - 2018;
+  if (!confirmed) {
+    return {main:`R${reiwa}年${m}月ごろ`, sub:'（推定）'};
+  }
+  return {main:`R${reiwa}.${m}.${day}（${wd}）`, sub:''};
+}
+
+function evalBadge(name) {
+  const v = EVAL[name] || '不明';
+  if (v === '実施済')   return `<span class="badge b-eval-done">行政評価 実施済</span>`;
+  if (v === '代替・試行') return `<span class="badge b-eval-alt">行政評価 代替・試行</span>`;
+  if (v === '予定なし')  return `<span class="badge b-eval-nashi">行政評価 予定なし</span>`;
+  return '';
+}
+
+function typeBadge(type) {
+  if (type === '議会') return `<span class="badge b-gikai">議会選挙</span>`;
+  if (type === '首長') return `<span class="badge b-cho">首長選挙</span>`;
+  return `<span class="badge b-chiji">知事選挙</span>`;
+}
+
+let activeFilters = {type:'all', year:'all', conf:'all'};
+
+function setFilter(key, val, btn) {
+  activeFilters[key] = val;
+  document.querySelectorAll(`[data-filter="${key}"]`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards();
+}
+
+function passFilter(e) {
+  const days = daysUntil(e.date);
+  if (activeFilters.type !== 'all') {
+    if (activeFilters.type === '議会' && e.type !== '議会') return false;
+    if (activeFilters.type === '首長' && (e.type !== '首長' && e.type !== '知事')) return false;
+  }
+  if (activeFilters.year !== 'all') {
+    const yr = new Date(e.date).getFullYear();
+    if (activeFilters.year === 'r8' && yr !== 2026) return false;
+    if (activeFilters.year === 'r9' && yr < 2027) return false;
+  }
+  if (activeFilters.conf === 'yes' && !e.confirmed) return false;
+  return true;
+}
+
+function groupByMonth(list) {
+  const groups = {};
+  list.forEach(e => {
+    const d = new Date(e.date);
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(e);
+  });
+  return groups;
+}
+
+function monthLabel(key) {
+  const [y, m] = key.split('-');
+  const reiwa = parseInt(y) - 2018;
+  return `R${reiwa}年 ${parseInt(m)}月`;
+}
+
+function renderCards() {
+  const container = document.getElementById('card-container');
+  const noResult = document.getElementById('no-result');
+  const filtered = ELECTIONS.filter(passFilter);
+  container.innerHTML = '';
+
+  if (filtered.length === 0) {
+    noResult.style.display = '';
+    return;
+  }
+  noResult.style.display = 'none';
+
+  const groups = groupByMonth(filtered);
+  Object.keys(groups).sort().forEach(key => {
+    const label = document.createElement('div');
+    label.className = 'section-head';
+    label.textContent = monthLabel(key) + (key < '2027-01' ? ' ── 告示日確定' : ' ── 任期満了より推定');
+    container.appendChild(label);
+
+    const list = document.createElement('div');
+    list.className = 'card-list';
+
+    groups[key].forEach(e => {
+      const days = daysUntil(e.date);
+      const {bar, cd} = urgencyClass(days, e.confirmed);
+      const {main: dateMain, sub: dateSub} = formatDate(e.date, e.confirmed);
+      const page = PAGES[e.name];
+      const cdText = countdownText(days, e.confirmed);
+      const isAttn = e.note && e.note.includes('注目');
+
+      const card = document.createElement('div');
+      card.className = 'ecard';
+      card.innerHTML = `
+        <div class="ecard-bar ${bar}"></div>
+        <div class="ecard-body">
+          <div class="ecard-date">
+            <div class="day">${dateMain}</div>
+            ${dateSub ? `<div class="weekday">${dateSub}</div>` : ''}
+            <div class="countdown ${cd}">${cdText}</div>
+          </div>
+          <div class="ecard-info">
+            <div class="ecard-name">
+              ${e.name}
+              ${isAttn ? `<span class="badge b-attn">🗳 注目</span>` : ''}
+            </div>
+            <div class="ecard-meta">
+              ${typeBadge(e.type)}
+              ${e.seats ? `<span class="seats-info">定数 ${e.seats}人</span>` : ''}
+              ${evalBadge(e.name)}
+              ${!e.confirmed ? `<span class="badge b-est">日程未確定</span>` : ''}
+            </div>
+            ${e.note && !isAttn ? `<div class="ecard-note">${e.note}</div>` : ''}
+            ${isAttn ? `<div class="ecard-note">${e.note}</div>` : ''}
+          </div>
+          <div class="ecard-actions">
+            ${page
+              ? `<a href="${page}" class="btn-page">詳細レポート →</a>`
+              : `<span class="btn-soon">ページ準備中</span>`}
+          </div>
+        </div>`;
+      list.appendChild(card);
+    });
+    container.appendChild(list);
+  });
+}
+
+function toggleTheme() {
+  const r = document.documentElement;
+  if (r.dataset.theme==='dark') r.dataset.theme='light';
+  else if (r.dataset.theme==='light') r.dataset.theme='dark';
+  else r.dataset.theme = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'light' : 'dark';
+}
+
+renderCards();
+</script>
+</body>
+</html>
