@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自由は死せず―土佐の魂と高知減税会｜高知減税会</title>
+<style>
+:root {
+  --bg: #ffffff; --bg-2: #f8fafc; --bg-blue: #eff6ff; --bg-deep: #1e3a5f;
+  --border: #e2e8f0; --border-strong: #cbd5e1;
+  --text: #1e293b; --text-2: #475569; --text-3: #94a3b8;
+  --blue: #2563eb; --blue-light: #dbeafe; --blue-mid: #3b82f6;
+  --gold: #92400e; --gold-light: #fef3c7;
+  --red: #dc2626; --green: #16a34a;
+  --serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', Georgia, serif;
+  --sans: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a; --bg-2: #1e293b; --bg-blue: #1e3a5f; --bg-deep: #0a1628;
+    --border: #334155; --border-strong: #475569;
+    --text: #f1f5f9; --text-2: #94a3b8; --text-3: #64748b;
+    --blue-light: #1e3a5f; --gold-light: #431a04;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f172a; --bg-2: #1e293b; --bg-blue: #1e3a5f; --bg-deep: #0a1628;
+  --border: #334155; --border-strong: #475569;
+  --text: #f1f5f9; --text-2: #94a3b8; --text-3: #64748b;
+  --blue-light: #1e3a5f; --gold-light: #431a04;
+}
+:root[data-theme="light"] {
+  --bg: #ffffff; --bg-2: #f8fafc; --bg-blue: #eff6ff; --bg-deep: #1e3a5f;
+  --border: #e2e8f0; --text: #1e293b; --text-2: #475569; --text-3: #94a3b8;
+  --blue-light: #dbeafe; --gold-light: #fef3c7;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; }
+
+/* Topbar */
+.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; gap: 16px; height: 52px; position: sticky; top: 0; z-index: 100; }
+.topbar-logo { font-size: 15px; font-weight: 700; color: var(--blue); }
+.topbar-logo span { color: var(--text-2); font-weight: 400; }
+.topbar-nav { display: flex; gap: 5px; flex-wrap: wrap; }
+.topbar-nav a { font-size: 12px; color: var(--text-2); padding: 3px 10px; border-radius: 20px; border: 1px solid var(--border); }
+.topbar-nav a:hover, .topbar-nav a.active { background: var(--blue-light); color: var(--blue); border-color: var(--blue-light); text-decoration: none; }
+.topbar-spacer { flex: 1; }
+.theme-btn { background: none; border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 12px; color: var(--text-2); cursor: pointer; }
+
+/* Hero */
+.hero {
+  background: var(--bg-deep);
+  color: #f8fafc;
+  padding: 72px 24px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '自由';
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-family: var(--serif); font-size: clamp(120px, 25vw, 220px);
+  color: rgba(255,255,255,0.04); font-weight: 900; white-space: nowrap;
+  pointer-events: none; line-height: 1;
+}
+.hero-eyebrow { font-size: 12px; letter-spacing: 0.12em; color: #93c5fd; margin-bottom: 24px; text-transform: uppercase; }
+.hero-quote {
+  font-family: var(--serif);
+  font-size: clamp(24px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: #f8fafc;
+  text-wrap: balance;
+}
+.hero-quote em { color: #60a5fa; font-style: normal; }
+.hero-attr { font-size: 13px; color: #93c5fd; margin-bottom: 32px; }
+.hero-sub { font-size: 15px; color: #cbd5e1; max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+/* Lead strip */
+.lead-strip { background: var(--blue); color: white; padding: 20px 24px; text-align: center; }
+.lead-strip p { font-size: 15px; font-weight: 600; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+.lead-strip strong { color: #bfdbfe; }
+
+/* Section */
+.section { max-width: 900px; margin: 0 auto; padding: 64px 24px; }
+.section-narrow { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.section-num { font-size: 12px; font-weight: 700; color: var(--blue); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+.section-lead { font-size: 15px; color: var(--text-2); margin-bottom: 32px; line-height: 1.8; border-left: 3px solid var(--blue); padding-left: 16px; }
+.divider { border: none; border-top: 1px solid var(--border); }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border-strong); }
+.tl-item { position: relative; margin-bottom: 36px; }
+.tl-dot { position: absolute; left: -28px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--blue); }
+.tl-dot.gold { background: #d97706; box-shadow: 0 0 0 2px #d97706; }
+.tl-dot.red { background: var(--red); box-shadow: 0 0 0 2px var(--red); }
+.tl-year { font-size: 12px; font-weight: 700; color: var(--blue); letter-spacing: 0.05em; margin-bottom: 4px; }
+.tl-title { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; font-family: var(--serif); }
+.tl-body { font-size: 14px; color: var(--text-2); line-height: 1.8; }
+.tl-quote { background: var(--bg-2); border-left: 3px solid var(--blue); padding: 10px 16px; margin-top: 10px; font-style: italic; font-size: 14px; color: var(--text-2); border-radius: 0 6px 6px 0; }
+
+/* Cards grid */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 32px; }
+.card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+.card-icon { font-size: 28px; margin-bottom: 12px; }
+.card-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; font-family: var(--serif); }
+.card-body { font-size: 13px; color: var(--text-2); line-height: 1.8; }
+
+/* Big quote block */
+.blockquote-big {
+  background: var(--bg-blue);
+  border: 1px solid var(--blue-light);
+  border-left: 5px solid var(--blue);
+  border-radius: 0 12px 12px 0;
+  padding: 32px 36px;
+  margin: 32px 0;
+}
+.blockquote-big p {
+  font-family: var(--serif);
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.blockquote-big cite { font-size: 13px; color: var(--text-3); font-style: normal; }
+
+/* Person card */
+.person { display: flex; gap: 20px; align-items: flex-start; background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 20px; }
+.person-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+.person-name { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 4px; font-family: var(--serif); }
+.person-years { font-size: 12px; color: var(--text-3); margin-bottom: 8px; }
+.person-body { font-size: 13px; color: var(--text-2); line-height: 1.8; }
+.person-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; background: var(--blue-light); color: var(--blue); margin-top: 6px; }
+
+/* Bridge section */
+.bridge { background: var(--bg-deep); color: #f8fafc; padding: 64px 24px; text-align: center; }
+.bridge h2 { font-family: var(--serif); font-size: clamp(20px, 4vw, 32px); font-weight: 700; margin-bottom: 20px; color: #f8fafc; line-height: 1.4; }
+.bridge p { font-size: 15px; color: #cbd5e1; max-width: 680px; margin: 0 auto 32px; line-height: 1.9; }
+.bridge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 800px; margin: 0 auto; }
+.bridge-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; text-align: left; }
+.bridge-item .era { font-size: 11px; color: #60a5fa; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; }
+.bridge-item .what { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; font-family: var(--serif); }
+.bridge-item .detail { font-size: 12px; color: #94a3b8; line-height: 1.6; }
+.bridge-arrow { font-size: 32px; color: #60a5fa; margin: 24px auto; }
+
+/* Site link */
+.site-link-box { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; display: flex; align-items: center; gap: 16px; }
+.site-link-box .site-icon { font-size: 32px; flex-shrink: 0; }
+.site-link-box h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.site-link-box p { font-size: 13px; color: var(--text-2); }
+.site-link-box a { font-weight: 600; }
+
+/* CTA */
+.cta { background: var(--blue); color: white; padding: 48px 24px; text-align: center; }
+.cta h2 { font-family: var(--serif); font-size: clamp(20px, 3vw, 28px); margin-bottom: 16px; }
+.cta p { font-size: 14px; color: #bfdbfe; max-width: 600px; margin: 0 auto 24px; line-height: 1.8; }
+.cta-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta-link { background: white; color: var(--blue); font-size: 14px; font-weight: 700; padding: 10px 20px; border-radius: 8px; text-decoration: none; }
+.cta-link:hover { background: #eff6ff; text-decoration: none; }
+.cta-link-outline { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 8px; text-decoration: none; }
+.cta-link-outline:hover { background: rgba(255,255,255,0.1); text-decoration: none; }
+
+/* Footer */
+footer { background: var(--bg-2); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; }
+footer p { font-size: 12px; color: var(--text-3); margin-bottom: 4px; }
+
+@media (max-width: 640px) {
+  .hero { padding: 48px 16px 40px; }
+  .section, .section-narrow { padding: 40px 16px; }
+  .person { flex-direction: column; gap: 12px; }
+  .blockquote-big { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo">高知減税会 <span>/ 行政ウォッチ</span></div>
+  <nav class="topbar-nav">
+    <a href="kochi.html">高知県概覧</a>
+    <a href="index.html">香美市</a>
+    <a href="map.html">地図</a>
+    <a href="jiyuu.html" class="active">自由民権</a>
+  </nav>
+  <div class="topbar-spacer"></div>
+  <button class="theme-btn" onclick="toggleTheme()">テーマ切替</button>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">土佐の精神 × 高知減税会</div>
+  <h1 class="hero-quote">
+    「板垣死すとも、<em>自由は死せず</em>」
+  </h1>
+  <p class="hero-attr">— 板垣退助、1882（明治15）年 岐阜にて</p>
+  <p class="hero-sub">
+    明治の土佐人が命がけで叫んだのは、自由・議会・そして<strong style="color:#93c5fd;">減税</strong>だった。
+    高知は本来、自由主義の土地である。その精神を今に受け継ぐのが高知減税会だ。
+  </p>
+</section>
+
+<div class="lead-strip">
+  <p>自由民権運動の要求は「国会開設」「憲法制定」そして<strong>「税の負担軽減」「不平等条約改正」</strong>。
+  150年前の土佐人が戦った課題は、形を変えて今もここにある。</p>
+</div>
+
+<!-- Section 1: 運動の歴史 -->
+<div class="section">
+  <div class="section-num">Chapter 01</div>
+  <h2 class="section-title">土佐から始まった、日本の自由</h2>
+  <p class="section-lead">
+    1874年、板垣退助らが政府に提出した「民撰議院設立建白書」。これが日本の自由民権運動の始まりだった。
+    国民が選ぶ議会をつくれ―その訴えは土佐から全国へと広がり、日本の立憲政治の礎となった。
+  </p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1837年（天保8年）</div>
+      <div class="tl-title">板垣退助、高知城下に生まれる</div>
+      <div class="tl-body">土佐藩上級武士「乾家」の長男として誕生。幼名は「猪之助」。戊辰戦争で活躍後、明治新政府の参議となる。</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-year">1874年（明治7年）</div>
+      <div class="tl-title">民撰議院設立建白書―自由民権運動の火蓋</div>
+      <div class="tl-body">
+        政府を去った退助が、後藤象二郎・板垣退助ら8名の連名で政府に建白書を提出。
+        「今の政令は上下の情意疎通せず、人民は国家の事に与らず」と一部役人による専制政治を批判。
+        国民の選ぶ議会（国会）の開設を求めた。これが全国的な自由民権運動の出発点となった。
+      </div>
+      <div class="tl-quote">「有司専制を変じ、政権を公に帰せしめんことを建白する」— 民撰議院設立建白書</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1874年（明治7年）</div>
+      <div class="tl-title">立志社 設立―土佐の自由運動の拠点</div>
+      <div class="tl-body">
+        高知に帰った退助が「立志社」を設立。自由民権運動の中心的組織となり、
+        憲法草案の起草、演説会の開催、新聞の発行を通じて活動を広げた。
+        立志学舎では士族の子弟を教育した。
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-year">1877年（明治10年）</div>
+      <div class="tl-title">立志社建白―減税を政府に要求</div>
+      <div class="tl-body">
+        西南戦争のさなか、立志社は政府へ建白書を提出。要求した3本柱：
+      </div>
+      <div class="tl-quote">
+        ①国会の早期開設　②<strong>税の負担軽減</strong>　③外国との不平等条約の改正
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1881年（明治14年）</div>
+      <div class="tl-title">自由党 結成―日本初の政党、退助が総理に</div>
+      <div class="tl-body">
+        自由民権運動に取り組む人々が「自由党」を結成。退助が総理（党首）に選ばれた。
+        政府が10年後の国会開設を約束したのを受け、全国で演説会・新聞発行を展開。
+        農民・商工業者の自由な発展を訴えた。
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-year">1882年（明治15年）</div>
+      <div class="tl-title">「板垣死すとも、自由は死せず」</div>
+      <div class="tl-body">
+        岐阜の懇親会帰りに刺客に襲われた退助が発した言葉。
+        明治天皇も「退助は国家につくした人だから」とお見舞いの使者を出した。
+        高知新聞が発行禁止になると、市民は「新聞の葬式」を行い抗議した。
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1889年（明治22年）</div>
+      <div class="tl-title">大日本帝国憲法発布・帝国議会開設</div>
+      <div class="tl-body">
+        土佐の民権運動が原動力となり、日本は東アジアで初めて憲法を制定し国会を開いた国となった。
+        退助は国会議員にはならず、政党間の調整や新政党の結成を通じて外から政治を動かし続けた。
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Section 2: 主役たち -->
+<div class="section">
+  <div class="section-num">Chapter 02</div>
+  <h2 class="section-title">自由を生きた土佐人たち</h2>
+  <p class="section-lead">
+    板垣退助だけではない。土佐から幾人もの先人が自由と民権のために立ち上がった。
+  </p>
+
+  <div class="person">
+    <div class="person-avatar">⚔</div>
+    <div>
+      <div class="person-name">板垣 退助（いたがき たいすけ）</div>
+      <div class="person-years">1837–1919 ／ 土佐藩・高知城下生まれ</div>
+      <div class="person-body">
+        自由民権運動のシンボル。日本初の政党「自由党」総理。内務大臣を2度務め、「隈板内閣」（大隈重信・板垣体制）では日本初の政党内閣を実現。財産をすべて運動に使い果たすも志を曲げなかった。
+        「猟犬２匹、家鴨20羽、猟銃２挺」だけになった全財産で、なお自分が正しいと信じた道を歩み続けた。
+      </div>
+      <span class="person-tag">自由党総理 ／ 内務大臣</span>
+    </div>
+  </div>
+
+  <div class="person">
+    <div class="person-avatar">📜</div>
+    <div>
+      <div class="person-name">植木 枝盛（うえき えもり）</div>
+      <div class="person-years">1857–1892 ／ 高知市出身</div>
+      <div class="person-body">
+        自由民権運動の理論家。1881年夏に自宅の書斎で「東洋大日本国国憲案」を執筆。
+        220条から成るこの憲法私案は、<strong>「人は生まれながらにして自由かつ平等」を基本とし、
+        政府に抵抗し革命を起こす権利まで認めていた</strong>―当時の世界でも急進的な内容だった。
+        国会議事堂にある立憲政治の礎を築いた3人の一人として、退助は永遠に刻まれている。
+      </div>
+      <span class="person-tag">東洋大日本国国憲案 起草</span>
+    </div>
+  </div>
+
+  <div class="person">
+    <div class="person-avatar">🏛</div>
+    <div>
+      <div class="person-name">片岡 健吉（かたおか けんきち）</div>
+      <div class="person-years">1843–1903 ／ 高知市出身</div>
+      <div class="person-body">
+        戊辰戦争で退助の部下として活躍。退助とともに政府を辞め、初代立志社社長に就任。
+        後に第12代衆議院議長を務めた。土佐の民権運動を政界に橋渡しした実務家。
+      </div>
+      <span class="person-tag">立志社初代社長 ／ 衆議院議長</span>
+    </div>
+  </div>
+
+  <div class="person">
+    <div class="person-avatar">🗳</div>
+    <div>
+      <div class="person-name">濱口 雄幸（はまぐち おさち）</div>
+      <div class="person-years">1870–1931 ／ 高知県出身</div>
+      <div class="person-body">
+        「ライオン宰相」の異名を持つ第27代内閣総理大臣。緊縮財政・行財政整理・金解禁を断行した
+        「小さな政府」論者。民政党の大黒柱として政党政治を支え、東京駅で狙撃されるも「男子の本懐」と言い放った。
+        土佐の政治家が貫いた「断行力」の系譜を体現。
+      </div>
+      <span class="person-tag">第27代内閣総理大臣 ／ 緊縮財政断行</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Section 3: 減税の系譜 -->
+<div class="section-narrow">
+  <div class="section-num">Chapter 03</div>
+  <h2 class="section-title">150年前も、土佐人は「減税」を求めていた</h2>
+
+  <div class="blockquote-big">
+    <p>「国会の開設・税の負担軽減・不平等条約の改正」</p>
+    <cite>— 立志社建白書（1877年）の三大要求</cite>
+  </div>
+
+  <p style="color:var(--text-2);font-size:15px;line-height:1.9;margin-bottom:24px;">
+    自由民権運動を単なる「民主主義運動」と捉えてはならない。
+    そこには明確な<strong style="color:var(--text);">財政改革・減税の要求</strong>が含まれていた。
+    明治政府の地租（土地税）は農民を苦しめ、各地で農民反乱（地租改正反対一揆）が起きた。
+    土佐の自由党員たちは「政府が民に重税を課すのは、民が政治に参加できないからだ」と論じた。
+  </p>
+
+  <p style="color:var(--text-2);font-size:15px;line-height:1.9;margin-bottom:24px;">
+    植木枝盛の憲法草案が「革命権」まで認めた背景にも、この財政への怒りがある。
+    政府が民の意思を無視して重税を課すなら、民は抵抗する権利がある―これは自由主義の本質だ。
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📉</div>
+      <div class="card-title">地租（土地税）への抵抗</div>
+      <div class="card-body">明治政府の地租改正（1873年）で農村は重い税負担を課された。自由党は農民と連帯し「税の負担軽減」を政府に繰り返し要求した。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🗣</div>
+      <div class="card-title">表現の自由との戦い</div>
+      <div class="card-body">政府は新聞紙条例・集会条例で自由民権運動を弾圧。高知新聞が発行禁止になると市民が「新聞の葬式」を行い抵抗した。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚖</div>
+      <div class="card-title">民間憲法草案</div>
+      <div class="card-body">植木枝盛の「東洋大日本国国憲案」、立志社の「日本憲法見込案」。どちらも民の権利を最大限に守り、政府権力を縛る発想で作られた。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏦</div>
+      <div class="card-title">濱口雄幸の緊縮財政</div>
+      <div class="card-body">土佐出身の宰相・濱口雄幸は昭和初期に行財政整理を断行。「小さな政府」「財政規律」を命がけで実行した土佐人の系譜を体現した。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Bridge -->
+<section class="bridge">
+  <h2>あの精神が今、高知減税会に息づいている</h2>
+  <p>
+    150年の時を超え、土佐の自由主義の精神は形を変えて生き続ける。
+    板垣退助が戦った「専制政治」は今や「行政評価なき官僚政治」として現れ、
+    立志社が求めた「減税」は今、高知減税会が声を上げる。
+  </p>
+
+  <div class="bridge-arrow">↓</div>
+
+  <div class="bridge-grid">
+    <div class="bridge-item">
+      <div class="era">明治 1874年</div>
+      <div class="what">一部役人による専制政治</div>
+      <div class="detail">民撰議院設立建白書で批判。「政権を公に帰せよ」</div>
+    </div>
+    <div class="bridge-item">
+      <div class="era">現代 2026年</div>
+      <div class="what">行政評価なき市政</div>
+      <div class="detail">香美市は全項目「実施予定なし」。政策の効果を誰も検証しない</div>
+    </div>
+
+    <div class="bridge-item">
+      <div class="era">明治 1877年</div>
+      <div class="what">税の負担軽減を要求</div>
+      <div class="detail">立志社建白書の三大要求のひとつ</div>
+    </div>
+    <div class="bridge-item">
+      <div class="era">現代 2026年</div>
+      <div class="what">一円の増税にも反対</div>
+      <div class="detail">高知減税会の基本方針。行政改革なき増税は認めない</div>
+    </div>
+
+    <div class="bridge-item">
+      <div class="era">明治 1881年</div>
+      <div class="what">農民・商工業者の自由な発展</div>
+      <div class="detail">自由党の綱領。規制による締め付けに反対</div>
+    </div>
+    <div class="bridge-item">
+      <div class="era">現代 2026年</div>
+      <div class="what">規制緩和の実現</div>
+      <div class="detail">高知減税会の方針。民間の活力を妨げる規制を撤廃せよ</div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: 史跡・資料 -->
+<div class="section">
+  <div class="section-num">Chapter 04</div>
+  <h2 class="section-title">自由の聖地・高知を歩く</h2>
+  <p class="section-lead">
+    自由民権運動の足跡は今も高知市内に刻まれている。
+    板垣退助の銅像から自由民権記念館まで、民権史跡を訪ねることは歴史を体感する旅でもある。
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🏯</div>
+      <div class="card-title">高知城・板垣退助銅像</div>
+      <div class="card-body">追手門から入ると天守への階段わきに退助の銅像が建つ。右手を挙げた姿は自由への決意を象徴する。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏛</div>
+      <div class="card-title">高知市立自由民権記念館</div>
+      <div class="card-body">退助のルイ・ヴィトントランク、民権運動の史料、植木枝盛の憲法草案の複製などを展示。i-minken.jp で情報公開中。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌿</div>
+      <div class="card-title">東九反田公園（憲政之祖国碑）</div>
+      <div class="card-body">1871年に退助・西郷・大久保・木戸が会談した開成館跡。後に退助が立志社と立志学舎を置いた場所。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📍</div>
+      <div class="card-title">板垣退助生誕地碑（高野寺前）</div>
+      <div class="card-body">高知市の中島町、現在の高野寺前に退助の生誕地碑がある。城下に上級武士として生まれた退助の出発点。</div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <div class="site-link-box">
+      <div class="site-icon">🏛</div>
+      <div>
+        <h3>高知市立自由民権記念館（i-minken.jp）</h3>
+        <p>板垣退助・植木枝盛・自由民権運動に関する史料の宝庫。高知市桟橋通4丁目。<br>
+        <a href="https://i-minken.jp" target="_blank" rel="noopener">i-minken.jp →</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>自由の土地・高知から、今また声を上げる</h2>
+  <p>
+    板垣退助が「税の負担軽減」を叫んでから150年。土佐の自由の精神を今に受け継ぎ、
+    高知減税会は一円の増税にも反対し、規制緩和を求めて活動します。
+    まず9月6日の香美市議選から。
+  </p>
+  <div class="cta-links">
+    <a href="index.html" class="cta-link">香美市 詳細レポート</a>
+    <a href="kochi.html" class="cta-link-outline">高知県34市町村の現状</a>
+    <a href="map.html" class="cta-link-outline">地図で見る</a>
+  </div>
+</section>
+
+<footer>
+  <p><strong>高知減税会</strong> | 一円の増税にも反対・規制緩和の実現</p>
+  <p>参考：板垣退助ブック（高知市立自由民権記念館）、自由のともしびvol.100、高知市中心部民権史跡案内図</p>
+  <p>自由民権記念館公式サイト：<a href="https://i-minken.jp" target="_blank" rel="noopener">i-minken.jp</a></p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  if (root.dataset.theme === 'dark') root.dataset.theme = 'light';
+  else if (root.dataset.theme === 'light') root.dataset.theme = 'dark';
+  else {
+    const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+  }
+}
+</script>
+</body>
+</html>
