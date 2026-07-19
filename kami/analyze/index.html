@@ -26,7 +26,7 @@ html{font-size:16px;scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI",Meiryo,"BIZ UDGothic",sans-serif;line-height:1.75;}
 
 .topbar{border-bottom:1px solid var(--border);padding:0.55rem 2.5rem;display:flex;align-items:center;gap:1.5rem;position:sticky;top:0;background:var(--bg);z-index:100;}
-.topbar-logo{font-size:0.78rem;font-weight:700;letter-spacing:0.18em;color:var(--blue);white-space:nowrap;}
+.topbar-logo{font-size:0.78rem;font-weight:700;letter-spacing:0.18em;color:var(--blue);white-space:nowrap;text-decoration:none;}
 .topbar-logo span{font-weight:400;color:var(--text-2);}
 .topbar-nav{display:flex;gap:0.25rem;flex-wrap:wrap;}
 .topbar-nav a{font-size:0.75rem;color:var(--text-2);padding:0.25rem 0.7rem;border-radius:4px;text-decoration:none;transition:background 0.15s,color 0.15s;}
@@ -118,7 +118,7 @@ body{background:var(--bg);color:var(--text);font-family:"Hiragino Kaku Gothic Pr
 <body>
 
 <header class="topbar">
-  <div class="topbar-logo">高知減税会 <span>/ 行政ウォッチ</span></div>
+  <a class="topbar-logo" href="/kochi-watch/">高知減税会</a>
   <nav class="topbar-nav">
     <a href="/kochi-watch/">高知県概覧</a>
     <a href="/kochi-watch/pref/">高知県庁</a>

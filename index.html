@@ -46,7 +46,7 @@ a:hover { text-decoration: underline; }
 
 /* Topbar */
 .topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; gap: 24px; height: 52px; position: sticky; top: 0; z-index: 100; }
-.topbar-logo { font-size: 15px; font-weight: 700; color: var(--blue); letter-spacing: -0.01em; white-space: nowrap; }
+.topbar-logo { font-size: 15px; font-weight: 700; color: var(--blue); letter-spacing: -0.01em; white-space: nowrap; text-decoration:none;}
 .topbar-logo span { color: var(--text-2); font-weight: 400; }
 .topbar-nav { display: flex; gap: 6px; flex-wrap: wrap; }
 .topbar-nav a { font-size: 13px; color: var(--text-2); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
@@ -143,7 +143,7 @@ footer strong { color: var(--text-2); }
 <body>
 
 <header class="topbar">
-  <div class="topbar-logo">高知減税会 <span>/ 行政ウォッチ</span></div>
+  <a class="topbar-logo" href="/kochi-watch/">高知減税会</a>
   <nav class="topbar-nav">
     <a href="/kochi-watch/" class="active">高知県概覧</a>
     <a href="/kochi-watch/pref/">高知県庁</a>
