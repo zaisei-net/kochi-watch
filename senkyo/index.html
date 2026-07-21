@@ -10,6 +10,12 @@
   gtag('config', 'G-F1PBSFFVQ5');
 </script>
 <meta charset="UTF-8">
+<meta name="description" content="高知県内の選挙日程ポータル。市区町村議会・首長選挙の日程と高知減税会の活動情報。2026年9月6日香美市議選。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高知減税会">
+<meta property="og:title" content="高知県 選挙日程ポータル｜高知減税会">
+<meta property="og:description" content="高知県内の選挙日程ポータル。市区町村議会・首長選挙の日程と高知減税会の活動情報。2026年9月6日香美市議選。">
+<meta property="og:url" content="https://zaisei-net.github.io/kochi-genzei/senkyo/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高知県 選挙日程ポータル｜高知減税会</title>
 <style>
@@ -31,11 +37,12 @@
 :root[data-theme="light"]{--bg:#ffffff;--bg-2:#f8fafc;--bg-blue:#eff6ff;--border:#e2e8f0;--text:#1e293b;--text-2:#475569;--text-3:#94a3b8;--blue-light:#dbeafe;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;}
-a{color:var(--blue);text-decoration:none;}
+a{color:var(--text);text-decoration:none;}
 a:hover{text-decoration:underline;}
 
 .topbar{background:var(--bg);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:16px;height:52px;position:sticky;top:0;z-index:100;}
-.topbar-logo{font-size:15px;font-weight:700;color:var(--blue);text-decoration:none;}
+.topbar-logo{font-size:15px;font-weight:700;color:var(--text);text-decoration:none;}
+.topbar-logo em{font-style:normal;color:var(--red);}
 .topbar-logo span{color:var(--text-2);font-weight:400;}
 .topbar-nav{display:flex;gap:5px;flex-wrap:wrap;}
 .topbar-nav a{font-size:12px;color:var(--text-2);padding:3px 10px;border-radius:20px;border:1px solid var(--border);}
@@ -118,13 +125,15 @@ a:hover{text-decoration:underline;}
 <body>
 
 <header class="topbar">
-  <a class="topbar-logo" href="/kochi-genzei/">高知減税会</a>
-  <nav class="topbar-nav">
-    <a href="/kochi-genzei/">高知県概覧</a>
+  <a class="topbar-logo" href="/kochi-genzei/">高知<em>減税</em>会</a>
+    <nav class="topbar-nav">
+    <a href="/kochi-genzei/">トップ</a>
     <a href="/kochi-genzei/pref/">高知県庁</a>
     <a href="/kochi-genzei/kami/">香美市</a>
-    <a href="/kochi-genzei/map/">地図</a>
     <a href="/kochi-genzei/kami/analyze/">行政分析</a>
+    <a href="/kochi-genzei/kami/genzei/">減税計画</a>
+    <a href="/kochi-genzei/kochi/">34市町村</a>
+    <a href="/kochi-genzei/map/">地図</a>
     <a href="/kochi-genzei/senkyo/" class="active">選挙日程</a>
     <a href="/kochi-genzei/jiyuu/">自由民権</a>
   </nav>
